@@ -6,11 +6,13 @@ const color = require("colors");
 const userRoutes =require("./Routes/userRoutes");
 const  chatRoutes =require("./Routes/chatRoutes"); 
 const messageRoutes=require('./Routes/messageRoutes');
+const cors = require('cors');
 const { notFound,errorHandler }=require('./middleware/errorMiddleware');
 dotenv.config();
 
 connectDB();
 const app = express();
+app.use(cors());
 app.use(express.json()); //To accept json data;
 
 app.get("/", (req, res) => {
